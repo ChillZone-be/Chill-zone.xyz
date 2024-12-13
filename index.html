@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chill-Zone.xyz</title>
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Chill-zone" />
+    <link rel="manifest" href="images/site.webmanifest" />
+    <link rel="icon" type="image/x-icon" href="images/default.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+      :root {
+        --primary: #ff0099;
+        --secondary: #6c63ff;
+        --dark: #1a1a1a;
+        --light: #ffffff;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-family: 'Segoe UI', sans-serif;
+      }
+
+      body {
+        background: url("images/animebg.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: var(--light);
+        margin: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      body.loaded {
+        opacity: 1;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+      }
+
+      .contact-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2.5rem;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-50%, -52%); }
+        100% { transform: translate(-50%, -50%); }
+      }
+
+      .contact-card h1 {
+        font-size: 2.5em;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .contact-info div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem;
+        border-radius: 10px;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .contact-info div:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(10px);
+      }
+
+      .contact-info i {
+        font-size: 1.2rem;
+        color: var(--primary);
+      }
+
+      .nav-bar {
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        display: flex;
+        gap: 1rem;
+        z-index: 1000;
+      }
+
+      .nav-bar a {
+        color: var(--light);
+        text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-bar a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition);
+      }
+
+      .nav-bar a:hover::after {
+        width: 100%;
+      }
+
+      .nav-bar a.active {
+        color: var(--primary);
+      }
+
+      .music-button {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--light);
+        transition: var(--transition);
+        z-index: 1000;
+      }
+
+      .music-button:hover {
+        transform: scale(1.1) rotate(10deg);
+        background: var(--primary);
+      }
+
+      .music-info {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        display: none;
+      }
+
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        max-width: 90%;
+        width: 500px;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .popup.active {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .popup-content {
+        padding: 2.5rem;
+      }
+
+      .popup h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+      }
+
+      .popup ul {
+        list-style: none;
+        margin: 1.5rem 0;
+      }
+
+      .popup ul li {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .popup ul li::before {
+        content: '•';
+        color: var(--primary);
+        position: absolute;
+        left: 0;
+      }
+
+      .popup button {
+        background: var(--primary);
+        color: var(--light);
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .popup button:hover {
+        background: var(--secondary);
+        transform: translateY(-2px);
+      }
+
+      .overlay {
+        position: fixed;
+        top: 2rem;
+        left: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        z-index: 1000;
+      }
+
+      .overlay img {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+      }
+
+      .overlay span {
+        font-size: 1.2rem;
+        font-weight: 600;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        .nav-bar {
+          top: auto;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          justify-content: center;
+          padding: 1rem;
+          background: rgba(0, 0, 0, 0.8);
+          backdrop-filter: blur(10px);
+        }
+
+        .contact-card {
+          padding: 2rem;
+        }
+
+        .music-button {
+          bottom: 5rem;
+        }
+
+        .music-info {
+          bottom: 5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay glass">
+      <img src="images/default.jpeg" alt="Logo" />
+      <span>Chill-Zone.xyz</span>
+    </div>
+
+    <nav class="nav-bar">
+      <a href="#" class="active glass">Home</a>
+      <a href="about" class="glass">About</a>
+      <a href="shop/index.php" class="glass">Shop</a>
+      <a href="/myblog/" class="glass">Blog</a>
+    </nav>
+
+    <div class="contact-card glass">
+      <h1>Hi.<br>I'm Mika.</h1>
+      <div class="contact-info">
+        <div class="glass">
+          <i class="fab fa-discord"></i>
+          <span>@jxsttmika</span>
+        </div>
+        <div class="glass">
+          <i class="fab fa-twitter"></i>
+          <span>@...</span>
+        </div>
+        <div class="glass">
+          <i class="fas fa-link"></i>
+          <span>chill-zone.xyz</span>
+        </div>
+        <div class="glass">
+          <i class="fas fa-envelope"></i>
+          <span>jannikkugler2006@web.de</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="music-button glass">
+      <i class="fas fa-music"></i>
+    </button>
+
+    <div class="music-info glass">
+      Music: <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+    </div>
+
+    <audio id="bgMusic" loop>
+      <source src="music/background.m4a" type="audio/mp4">
+    </audio>
+
+    <div class="popup glass">
+      <div class="popup-content">
+        <h2>Chill-Zone.xyz Version 4.9</h2>
+        <p>Changelog:</p>
+        <ul>
+          <li>Verbesserte Sicherheit durch SQL Injection Schutz</li>
+          <li>DDoS-Schutz implementiert</li>
+          <li>Erweiterte Sicherheitsheader hinzugefügt</li>
+          <li>Hotlink-Schutz für Bilder aktiviert</li>
+          <li>Wartungsmodus-Funktion hinzugefügt</li>
+          <li>Verbesserte PHP-Sicherheitseinstellungen</li>
+        </ul>
+        <button onclick="closePopup()">Close</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.body.classList.add("loaded");
+        
+        const popup = document.querySelector(".popup");
+        popup.classList.add("active");
+        
+        const musicButton = document.querySelector(".music-button");
+        const musicInfo = document.querySelector(".music-info");
+        const audio = document.getElementById("bgMusic");
+        let isPlaying = false;
+
+        function updateMusicTime() {
+          const currentTime = document.getElementById("currentTime");
+          const duration = document.getElementById("duration");
+          
+          currentTime.textContent = formatTime(audio.currentTime);
+          duration.textContent = formatTime(audio.duration);
+        }
+
+        function formatTime(time) {
+          if (isNaN(time)) return "0:00";
+          const minutes = Math.floor(time / 60);
+          const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+          return `${minutes}:${seconds}`;
+        }
+
+        function animateTitle() {
+          const title = "Chill-Zone.xyz";
+          let i = 0;
+          setInterval(() => {
+            document.title = title.substring(i) + title.substring(0, i);
+            i = (i + 1) % title.length;
+          }, 400);
+        }
+
+        animateTitle();
+
+        audio.addEventListener("timeupdate", updateMusicTime);
+        
+        musicButton.addEventListener("click", function() {
+          if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            musicInfo.style.display = "none";
+            musicButton.classList.remove("active");
+          } else {
+            audio.play().catch(function(error) {
+              console.log("Audio playback failed:", error);
+            });
+            isPlaying = true;
+            musicInfo.style.display = "block";
+            musicButton.classList.add("active");
+          }
+        });
+      });
+
+      function closePopup() {
+        document.querySelector(".popup").classList.remove("active");
+      }
+    </script>
+  </body>
+</html>

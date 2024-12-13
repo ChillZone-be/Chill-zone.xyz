@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Storage on Blog</title>
+    <link>http://localhost:1313/myblog/tags/storage/</link>
+    <description>Recent content in Storage on Blog</description>
+    <image>
+      <title>Blog</title>
+      <url>http://localhost:1313/myblog/images/favicon.ico</url>
+      <link>http://localhost:1313/myblog/images/favicon.ico</link>
+    </image>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Nov 2024 17:52:01 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/myblog/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Lab Rack</title>
+      <link>http://localhost:1313/myblog/post/home-lab-rack/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/post/home-lab-rack/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;As an enthusiastic tech geek and IT enthusiast, I have decided to set up my own home lab. This will not only serve as a playground for new technologies, but also as a test and development environment for my professional projects.&lt;/p&gt;
+&lt;p&gt;After looking intensively at various configurations and hardware components, here is my final choice for a 22U server rack.&lt;/p&gt;
+&lt;h2 id=&#34;hardware-components&#34;&gt;Hardware components&lt;/h2&gt;
+&lt;h3 id=&#34;netzwerk-equipment&#34;&gt;Netzwerk-Equipment&lt;/h3&gt;
+&lt;p&gt;This section lists the network components that serve as the backbone for my Home Lab. These include a powerful PoE switch, a redundant backup switch and an OPNsense firewall.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

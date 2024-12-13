@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Blog</title>
+    <link>http://localhost:1313/myblog/tags/</link>
+    <description>Recent content in Tags on Blog</description>
+    <image>
+      <title>Blog</title>
+      <url>http://localhost:1313/myblog/images/favicon.ico</url>
+      <link>http://localhost:1313/myblog/images/favicon.ico</link>
+    </image>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 Nov 2024 08:30:13 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/myblog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azubi</title>
+      <link>http://localhost:1313/myblog/tags/azubi/</link>
+      <pubDate>Sat, 09 Nov 2024 08:30:13 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/azubi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Entwicklung</title>
+      <link>http://localhost:1313/myblog/tags/entwicklung/</link>
+      <pubDate>Sat, 09 Nov 2024 08:30:13 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/entwicklung/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IT</title>
+      <link>http://localhost:1313/myblog/tags/it/</link>
+      <pubDate>Sat, 09 Nov 2024 08:30:13 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/it/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lernen</title>
+      <link>http://localhost:1313/myblog/tags/lernen/</link>
+      <pubDate>Sat, 09 Nov 2024 08:30:13 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/lernen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arduino</title>
+      <link>http://localhost:1313/myblog/tags/arduino/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/arduino/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chat</title>
+      <link>http://localhost:1313/myblog/tags/chat/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/chat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Customization</title>
+      <link>http://localhost:1313/myblog/tags/customization/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/customization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Discord</title>
+      <link>http://localhost:1313/myblog/tags/discord/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/discord/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:1313/myblog/tags/docker/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ESP32</title>
+      <link>http://localhost:1313/myblog/tags/esp32/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/esp32/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hardware</title>
+      <link>http://localhost:1313/myblog/tags/hardware/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/hardware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IoT</title>
+      <link>http://localhost:1313/myblog/tags/iot/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/iot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LED</title>
+      <link>http://localhost:1313/myblog/tags/led/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/led/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mail</title>
+      <link>http://localhost:1313/myblog/tags/mail/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/mail/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Maker</title>
+      <link>http://localhost:1313/myblog/tags/maker/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/maker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Netzwerk</title>
+      <link>http://localhost:1313/myblog/tags/netzwerk/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/netzwerk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Server</title>
+      <link>http://localhost:1313/myblog/tags/server/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/server/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Storage</title>
+      <link>http://localhost:1313/myblog/tags/storage/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/storage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tricks</title>
+      <link>http://localhost:1313/myblog/tags/tricks/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/tricks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:1313/myblog/tags/tutorial/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Virtualisierung</title>
+      <link>http://localhost:1313/myblog/tags/virtualisierung/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/virtualisierung/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VPN</title>
+      <link>http://localhost:1313/myblog/tags/vpn/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/vpn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wireguard</title>
+      <link>http://localhost:1313/myblog/tags/wireguard/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/wireguard/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Evil Twin</title>
+      <link>http://localhost:1313/myblog/tags/evil-twin/</link>
+      <pubDate>Fri, 12 Jul 2024 18:08:17 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/evil-twin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hacking</title>
+      <link>http://localhost:1313/myblog/tags/hacking/</link>
+      <pubDate>Fri, 12 Jul 2024 18:08:17 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/hacking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/myblog/tags/security/</link>
+      <pubDate>Fri, 12 Jul 2024 18:08:17 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>WiFi</title>
+      <link>http://localhost:1313/myblog/tags/wifi/</link>
+      <pubDate>Fri, 12 Jul 2024 18:08:17 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/wifi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Android</title>
+      <link>http://localhost:1313/myblog/tags/android/</link>
+      <pubDate>Wed, 03 Jan 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/android/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IOS</title>
+      <link>http://localhost:1313/myblog/tags/ios/</link>
+      <pubDate>Wed, 03 Jan 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/ios/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kritik</title>
+      <link>http://localhost:1313/myblog/tags/kritik/</link>
+      <pubDate>Wed, 03 Jan 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/kritik/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Smartphone</title>
+      <link>http://localhost:1313/myblog/tags/smartphone/</link>
+      <pubDate>Wed, 03 Jan 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/tags/smartphone/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Email</title>
+      <link>http://localhost:1313/myblog/tags/email/</link>
+      <pubDate>Thu, 08 Jun 2023 09:09:02 +0200</pubDate>
+      <guid>http://localhost:1313/myblog/tags/email/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IMAP</title>
+      <link>http://localhost:1313/myblog/tags/imap/</link>
+      <pubDate>Thu, 08 Jun 2023 09:09:02 +0200</pubDate>
+      <guid>http://localhost:1313/myblog/tags/imap/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microsoft</title>
+      <link>http://localhost:1313/myblog/tags/microsoft/</link>
+      <pubDate>Thu, 08 Jun 2023 09:09:02 +0200</pubDate>
+      <guid>http://localhost:1313/myblog/tags/microsoft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Office365</title>
+      <link>http://localhost:1313/myblog/tags/office365/</link>
+      <pubDate>Thu, 08 Jun 2023 09:09:02 +0200</pubDate>
+      <guid>http://localhost:1313/myblog/tags/office365/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Setup</title>
+      <link>http://localhost:1313/myblog/tags/setup/</link>
+      <pubDate>Thu, 08 Jun 2023 09:09:02 +0200</pubDate>
+      <guid>http://localhost:1313/myblog/tags/setup/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

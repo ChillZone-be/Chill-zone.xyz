@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill Zone - About</title>
+    <style>
+        :root {
+            --primary: #ff0099;
+            --secondary: #6c63ff;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: url("images/animebg.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: var(--light);
+            margin: 0;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .about-header {
+            text-align: center;
+            padding: 2rem;
+            animation: slideDown 1s ease-out;
+        }
+
+        .about-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .profile-section {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            object-fit: cover;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(255, 0, 153, 0.3);
+        }
+
+        .bio-section {
+            padding: 3rem 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .skill-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--light);
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 3rem;
+        }
+
+        .toggle-contact {
+            display: block;
+            margin: 2rem auto;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--light);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .toggle-contact:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 153, 0.4);
+        }
+
+        .contact-form {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        .contact-form.active {
+            max-height: 800px;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(255, 0, 153, 0.3);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--light);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 153, 0.4);
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light);
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+        }
+
+        .logo {
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .overlay img {
+            height: 40px;
+            width: auto;
+        }
+
+        .credits ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .credits li {
+            margin: 0.5rem 0;
+        }
+
+        .credits a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .credits a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 80px;
+                gap: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-section {
+                padding: 2rem;
+            }
+
+            .bio-section {
+                padding: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card {
+                min-height: 220px;
+                padding: 2rem;
+            }
+
+            .contact-section {
+                padding: 2rem;
+            }
+
+            .nav-container {
+                top: auto;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                justify-content: center;
+                padding: 1rem;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(10px);
+            }
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lec2XMqAAAAAAtsmft8VlFyXJI1ofeGh805BpZu" async defer></script>
+</head>
+<body>
+    <nav class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="images/default.jpeg" alt="Logo">
+            Chill-Zone.xyz
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="shop/index.php" class="glass">Shop</a>
+            <a href="blog.html">Blog</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="about-header glass">
+            <h1>About Me</h1>
+            <p>Software Developer & Tech Enthusiast</p>
+        </header>
+
+        <div class="about-content glass">
+            <div class="profile-section">
+                <img src="images/avatar.jpeg" alt="Mika's Avatar" class="profile-image">
+                <h2>Jannik (Mika)</h2>
+                <p>18 years old • Germany</p>
+            </div>
+
+            <div class="bio-section">
+                <p>
+                    I'm Jannik, an <strong>18 year old</strong> from Germany! 📚<br />
+                    Meow meow mrrp~ HRT since a year ago, taken by Lea 💯<br /><br />
+                    I go by <em>Mika</em> on the internet, and my socials are linked on
+                    this site. I mainly spend my time shitposting, so if you're into
+                    that feel free to follow me :3<br />
+                    I'm learning PCB design, PnP production, and CNC machining. My
+                    apprenticeship is in plastic and rubber technology.<br /><br />
+                    I'm a software developer with big ambitions and a chronic lack of
+                    motivation to touch my projects. Linux enthusiast, self-hosting
+                    everything, open-source enjoyer. Big tech can go to hell.<br />
+                    I run <em>amogus.cloud</em>, an invite-only suite of self-hosted
+                    software for my friends including Nextcloud, Email, Jellyfin, and
+                    others :3
+                </p>
+            </div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Software Development</h3>
+                <p>Full-stack development with modern technologies. Specialized in web applications and system administration.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Hardware & PCB</h3>
+                <p>PCB design, PnP production, and CNC machining. Practical experience in plastic and rubber technology.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Self-Hosting</h3>
+                <p>Operating amogus.cloud with Nextcloud, Email, Jellyfin, and other self-hosted services.</p>
+            </div>
+        </div>
+
+        <div class="contact-section glass">
+            <h2>Contact</h2>
+            <p>
+                If you'd like to get in touch with me, feel free to reach out through
+                the social networks linked on the landing page.<br />
+                If it's urgent, please use the contact form.<br />
+                Otherwise, you can also slide into my DMs – I'm always up for a chat
+                👻
+            </p>
+            <button class="toggle-contact" onclick="toggleContactForm()">Open Contact Form</button>
+            <form id="contact-form" method="post" class="contact-form">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="E-Mail" required>
+                <textarea name="message" placeholder="Nachricht" required></textarea>
+                <input type="text" name="website" style="display:none"> <!-- Honeypot -->
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                <button type="submit">Senden</button>
+            </form>
+        </div>
+
+        <div class="credits glass">
+            <h2>Credits and Licenses</h2>
+            <ul>
+                <li>My 3D printer "<a href="#">3D Printer</a>", a high-speed 3D printer</li>
+                <li>My AI company "<a href="#">Nura</a>", the one and only Nura</li>
+                <li>My TomTom "<a href="#">👨‍💻</a>", the one and only Shawty 💝</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let recaptchaLoaded = false;
+
+        // reCAPTCHA callback
+        function onRecaptchaLoad() {
+            console.log('reCAPTCHA loaded');
+            recaptchaLoaded = true;
+            grecaptcha.ready(function() {
+                console.log('reCAPTCHA ready');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+            
+            // Add form submit handler
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Execute reCAPTCHA
+                grecaptcha.execute('6Lec2XMqAAAAAAtsmft8VlFyXJI1ofeGh805BpZu', {action: 'submit'})
+                .then(function(token) {
+                    document.getElementById('g-recaptcha-response').value = token;
+                    
+                    // Use traditional form submission for redirection
+                    const form = document.getElementById('contact-form');
+                    form.action = 'send_mail.php';
+                    form.method = 'POST';
+                    form.submit();
+                })
+                .catch(function(error) {
+                    console.error('reCAPTCHA error:', error);
+                    alert('Error with reCAPTCHA. Please try again.');
+                });
+            });
+        });
+
+        function toggleContactForm() {
+            const form = document.querySelector('.contact-form');
+            const btn = document.querySelector('.toggle-contact');
+            
+            if (form.classList.contains('active')) {
+                form.style.maxHeight = '0';
+                btn.textContent = 'Open Contact Form';
+            } else {
+                form.style.maxHeight = form.scrollHeight + "px";
+                btn.textContent = 'Close Contact Form';
+            }
+            form.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

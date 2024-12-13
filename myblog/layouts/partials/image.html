@@ -1,0 +1,30 @@
+{{- $image := .Page.Resources.GetMatch (printf "%s" (.Get "src")) -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+{{- $class := .Get "class" -}}
+
+{{- if $image -}}
+  {{- $small := $image.Resize "480x" -}}
+  {{- $medium := $image.Resize "768x" -}}
+  {{- $large := $image.Resize "1024x" -}}
+  {{- $xlarge := $image.Resize "1200x" -}}
+
+  <figure class="{{ with $class }}{{ . }}{{ end }}">
+    <img
+      srcset="{{ $small.RelPermalink }} 480w,
+              {{ $medium.RelPermalink }} 768w,
+              {{ $large.RelPermalink }} 1024w,
+              {{ $xlarge.RelPermalink }} 1200w"
+      sizes="(max-width: 480px) 480px,
+             (max-width: 768px) 768px,
+             (max-width: 1024px) 1024px,
+             1200px"
+      src="{{ $image.RelPermalink }}"
+      alt="{{ $alt }}"
+      loading="lazy"
+      decoding="async"
+      width="{{ $image.Width }}"
+      height="{{ $image.Height }}">
+    {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+  </figure>
+{{- end -}}

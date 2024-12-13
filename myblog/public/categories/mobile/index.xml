@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mobile on Blog</title>
+    <link>http://localhost:1313/myblog/categories/mobile/</link>
+    <description>Recent content in Mobile on Blog</description>
+    <image>
+      <title>Blog</title>
+      <url>http://localhost:1313/myblog/images/favicon.ico</url>
+      <link>http://localhost:1313/myblog/images/favicon.ico</link>
+    </image>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 03 Jan 2024 17:52:01 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/myblog/categories/mobile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ihateandroid</title>
+      <link>http://localhost:1313/myblog/post/ihateandroid/</link>
+      <pubDate>Wed, 03 Jan 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/post/ihateandroid/</guid>
+      <description>&lt;p&gt;I had an issue where Signal never created backups, even when I manually tried to make one.&lt;/p&gt;
+&lt;p&gt;The logs reveal the following:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;01-16 00:54:39.725  8241  8299 I GenericForegroundServic: [startForegroundTask] Task: Creating Signal backup…, ID: 12
+01-16 00:54:39.734  8241  8241 D GenericForegroundServic: [onCreate]
+01-16 00:54:39.734  8241  8241 D GenericForegroundServic: [onStartCommand] Action: start
+01-16 00:54:39.734  8241  8241 I GenericForegroundServic: [onStartCommand] Adding entry: ChannelId: backups_v2, ID: 12, Progress: 0/0 determinate
+01-16 00:54:39.735  8241  8299 W NotificationController: Tried to update the progress, but the service was no longer bound!
+01-16 00:54:39.736  8241  8241 I JobSchedulerScheduler: Waking due to job: 0
+01-16 00:54:39.736  8241  8241 D GenericForegroundServic: [onBind]
+01-16 00:54:39.737  8241  8241 I NotificationController: [onServiceConnected] Name: ComponentInfo{org.thoughtcrime.securesms/org.thoughtcrime.securesms.service.GenericForegroundService}
+01-16 00:54:39.738  8241  8241 I GenericForegroundServic: handleReplace() ChannelId: backups_v2, ID: 12, Progress: 0/0 indeterminate
+01-16 00:54:39.750  2978  3302 E MediaProvider: Creating or writing to a non-default top level directory is not allowed!
+01-16 00:54:39.750  8241  8299 D NotificationController: [close] Unbinding service.
+01-16 00:54:39.751  8241  8299 D GenericForegroundServic: [stopForegroundTask] ID: 12
+01-16 00:54:39.752  8241  8299 I GenericForegroundServic: Stopping foreground service id=12
+01-16 00:54:39.754  8241  8299 W BaseJob : [JOB::a0f417d3-7fdb-4847-ac28-55125c1f8082][LocalBackupJob] Encountered a failing exception. (Time Since Submission: 39 ms, Lifespan: Immortal, Run Attempt: 1/3, Queue: __LOCAL_BACKUP__)
+01-16 00:54:39.754  8241  8299 W BaseJob : org.thoughtcrime.securesms.database.NoExternalStorageException
+01-16 00:54:39.754  8241  8299 W BaseJob : 	at org.thoughtcrime.securesms.util.StorageUtil.getOrCreateBackupDirectory(StorageUtil.java:138)
+01-16 00:54:39.754  8241  8299 W BaseJob : 	at org.thoughtcrime.securesms.jobs.LocalBackupJob.onRun(LocalBackupJob.java:103)
+01-16 00:54:39.754  8241  8299 W BaseJob : 	at org.thoughtcrime.securesms.jobs.BaseJob.run(BaseJob.java:31)
+01-16 00:54:39.754  8241  8299 W BaseJob : 	at org.thoughtcrime.securesms.jobmanager.JobRunner.run(JobRunner.java:86)
+01-16 00:54:39.754  8241  8299 W BaseJob : 	at org.thoughtcrime.securesms.jobmanager.JobRunner.run(JobRunner.java:49)
+01-16 00:54:39.754  8241  8299 W JobRunner: [JOB::a0f417d3-7fdb-4847-ac28-55125c1f8082][LocalBackupJob][1] Job failed. (Time Since Submission: 40 ms, Lifespan: Immortal, Run Attempt: 1/3, Queue: __LOCAL_BACKUP__)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After reading a couple GitHub threads and briefly checking the source code, the issue seems to be that Signal has access to the backup directory but isn&amp;rsquo;t allowed to write to it for whatever reason.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

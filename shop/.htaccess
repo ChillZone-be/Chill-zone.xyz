@@ -1,0 +1,9 @@
+# Basic Settings
+Options -Indexes +FollowSymLinks
+DirectoryIndex index.php index.html
+
+# Protect Files
+<FilesMatch "\.(log|ini)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

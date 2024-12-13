@@ -1,0 +1,188 @@
+baseURL: "http://chill-zone.xyz/myblog/"
+relativeURLs: false
+languageCode: "en-us"
+title: "Blog"
+theme: "PaperMod"
+
+# Grundeinstellungen
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+enableGitInfo: false
+
+# Ignore specific warnings
+ignoreErrors: ['error-remote-getjson']
+ignoreLogs: ['warning-goldmark-raw-html']
+
+# Allow Raw HTML
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# Pagination
+paginate: 3
+
+# RSS Feed
+outputFormats:
+  RSS:
+    mediatype: "application/rss+xml"
+    baseName: "feed"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# SEO
+params:
+  env: production
+  author: "Mika"
+  description: "Ein persönlicher Blog über Technologie, Hobbys und das Leben"
+  keywords: [Blog, Technologie, Hobbys, Lifestyle, Homelab, Server]
+  images: ["/images/site-feature-image.jpg"]
+  DateFormat: "2. January 2006"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowToc: true
+  comments: true
+  disqusShortname: "chill-zone-xyz"
+  
+  # Homepage Settings
+  mainSections: ["post"]
+  disableSpecial1stPost: true
+  homeInfoParams:
+    Title: "Chill-zone | Blog"
+    Content: >
+      👋 Welcome to my blog! Here, I write about things that interest me—whether it's technology, hobbies, or life in general. I hope you find something intriguing and enjoyable here too.
+    image: "images/favicon.ico"
+
+  # Analytics (Umami - datenschutzfreundlich)
+  analytics:
+    enabled: true
+    umami:
+      serverURL: "umami.chill-zone.xyz"
+      id: "your-website-id"
+      trackerScriptName: "script.js"
+
+  # Open Graph & Twitter Cards
+  opengraph:
+    twitter:
+      site: "@dein_twitter"
+      card: summary_large_image
+
+  # Assets & Design
+  assets:
+    disableHLJS: true
+    favicon: "/images/favicon.ico"
+    favicon16x16: "/images/favicon-16x16.png"
+    favicon32x32: "/images/favicon-32x32.png"
+    apple_touch_icon: "/images/apple-touch-icon.png"
+    safari_pinned_tab: "/images/safari-pinned-tab.svg"
+
+  # Code Highlighting
+  pygmentsUseClasses: true
+  pygmentsCodeFences: true
+  pygmentsCodefencesGuessSyntax: true
+
+  # Search
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
+
+  socialIcons:
+    - name: github
+      title: View Source on Github
+      url: "https://github.com/EinsPommes"
+    - name: Discord
+      title: Join discord community
+      url: "https://discord.com/invite/your-invite-link"
+    - name: X
+      title: Share PaperMod on X/Twitter
+      url: "https://x.com/"
+    - name: KoFi
+      title: Buy me a Ko-Fi :)
+      url: "https://ko-fi.com/jxsttmika"
+
+  showReadingTime: true
+  showPostDate: true
+  showPostAuthor: true
+  showWordCount: true
+  showLastMod: true
+  comments: true
+  disqusShortname: "chill-zone-xyz"
+
+# Kommentarsystem
+# services:
+#   disqus:
+#     shortname: "chill-zone-xyz"
+#     enable: true
+
+# Navigation
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: "/"
+      weight: 1
+    - identifier: blog
+      name: Blog
+      url: "/post/"
+      weight: 2
+    - identifier: categories
+      name: Kategorien
+      url: "/categories/"
+      weight: 3
+    - identifier: tags
+      name: Tags
+      url: "/tags/"
+      weight: 4
+    - identifier: main
+      name: Website
+      url: "https://chill-zone.xyz"
+      weight: 5
+
+# Mehrsprachigkeit
+languages:
+  de:
+    languageName: "Deutsch"
+    weight: 1
+    params:
+      homeInfoParams:
+        Title: "Chill-zone | Blog"
+        Content: >
+          👋 Willkommen auf meinem Blog! Hier schreibe ich über Dinge, die mich interessieren – sei es Technologie, Hobbys oder das Leben im Allgemeinen. Ich hoffe, du findest hier auch etwas Interessantes und Unterhaltsames.
+
+  en:
+    languageName: "English"
+    weight: 2
+    params:
+      homeInfoParams:
+        Title: "Chill-zone | Blog"
+        Content: >
+          👋 Welcome to my blog! Here, I write about things that interest me—whether it's technology, hobbies, or life in general. I hope you find something intriguing and enjoyable here too.
+
+# Cache-Einstellungen
+caches:
+  assets:
+    dir: :resourceDir/_gen
+    maxAge: 24h
+  images:
+    dir: :resourceDir/_gen
+    maxAge: 24h
+  modules:
+    dir: :resourceDir/_gen
+    maxAge: 24h

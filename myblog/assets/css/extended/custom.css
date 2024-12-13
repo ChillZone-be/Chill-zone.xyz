@@ -1,0 +1,52 @@
+/* Verbesserte Code-Blöcke */
+.post-content pre {
+    border-radius: 8px;
+    margin: 1.5em 0;
+    padding: 1em;
+    background: #2d2d2d;
+}
+
+/* Schönere Tabellen */
+.post-content table {
+    border-collapse: collapse;
+    margin: 1em 0;
+    width: 100%;
+}
+
+.post-content table th,
+.post-content table td {
+    padding: 0.5em;
+    border: 1px solid var(--border);
+}
+
+.post-content table th {
+    background: var(--code-bg);
+}
+
+/* Hover-Effekte für Links */
+.post-content a:hover {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+/* Hervorgehobene Blockzitate */
+.post-content blockquote {
+    border-left: 4px solid var(--primary);
+    margin: 1.5em 0;
+    padding: 0.5em 1em;
+    background: var(--code-bg);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Schönere Überschriften */
+.post-content h2 {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.3em;
+    margin-top: 2em;
+}
+
+/* Verbesserte Lesbarkeit */
+.post-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+}

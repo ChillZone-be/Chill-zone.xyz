@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Erlaube alle Bots auf die wichtigen Seiten
+Allow: /post/
+Allow: /categories/
+Allow: /tags/
+
+# Verbiete Zugriff auf Admin-Bereiche
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap Location
+Sitemap: http://chill-zone.xyz/myblog/sitemap.xml
+
+# Crawl-Delay für bessere Server-Performance
+Crawl-delay: 10

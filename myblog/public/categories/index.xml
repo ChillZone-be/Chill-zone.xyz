@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Blog</title>
+    <link>http://localhost:1313/myblog/categories/</link>
+    <description>Recent content in Categories on Blog</description>
+    <image>
+      <title>Blog</title>
+      <url>http://localhost:1313/myblog/images/favicon.ico</url>
+      <link>http://localhost:1313/myblog/images/favicon.ico</link>
+    </image>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 Nov 2024 08:30:13 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/myblog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ausbildung</title>
+      <link>http://localhost:1313/myblog/categories/ausbildung/</link>
+      <pubDate>Sat, 09 Nov 2024 08:30:13 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/ausbildung/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Projekt</title>
+      <link>http://localhost:1313/myblog/categories/projekt/</link>
+      <pubDate>Sat, 09 Nov 2024 08:30:13 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/projekt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DIY</title>
+      <link>http://localhost:1313/myblog/categories/diy/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/diy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elektronik</title>
+      <link>http://localhost:1313/myblog/categories/elektronik/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/elektronik/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hardware</title>
+      <link>http://localhost:1313/myblog/categories/hardware/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/hardware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homelab</title>
+      <link>http://localhost:1313/myblog/categories/homelab/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/homelab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Selfhosting</title>
+      <link>http://localhost:1313/myblog/categories/selfhosting/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/selfhosting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Server</title>
+      <link>http://localhost:1313/myblog/categories/server/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/server/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Software</title>
+      <link>http://localhost:1313/myblog/categories/software/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/software/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:1313/myblog/categories/tutorial/</link>
+      <pubDate>Fri, 08 Nov 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Netzwerk</title>
+      <link>http://localhost:1313/myblog/categories/netzwerk/</link>
+      <pubDate>Fri, 12 Jul 2024 18:08:17 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/netzwerk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>http://localhost:1313/myblog/categories/security/</link>
+      <pubDate>Fri, 12 Jul 2024 18:08:17 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mobile</title>
+      <link>http://localhost:1313/myblog/categories/mobile/</link>
+      <pubDate>Wed, 03 Jan 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/mobile/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Opinion</title>
+      <link>http://localhost:1313/myblog/categories/opinion/</link>
+      <pubDate>Wed, 03 Jan 2024 17:52:01 +0100</pubDate>
+      <guid>http://localhost:1313/myblog/categories/opinion/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
