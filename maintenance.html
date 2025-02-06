@@ -30,8 +30,19 @@
             border-radius: 10px;
             border: 1px solid var(--primary);
             box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
-            max-width: 600px;
+            max-width: 800px;
             width: 100%;
+        }
+
+        .ascii-art {
+            font-family: monospace;
+            white-space: pre;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+            margin: 20px 0;
+            font-size: 10px;
+            line-height: 1.2;
+            animation: glitch 1s infinite;
         }
 
         .title {
@@ -45,12 +56,6 @@
             color: var(--primary);
             font-size: 1.2rem;
             margin-bottom: 30px;
-        }
-
-        .timer {
-            font-size: 2.5rem;
-            margin: 20px 0;
-            color: var(--primary);
         }
 
         .progress-bar {
@@ -85,6 +90,11 @@
             50% { opacity: 0; }
         }
 
+        @keyframes glitch {
+            0%, 100% { text-shadow: 0 0 10px var(--primary); }
+            50% { text-shadow: -2px 0 var(--primary), 2px 0 #0ff; }
+        }
+
         .cursor {
             animation: blink 1s infinite;
         }
@@ -92,37 +102,26 @@
 </head>
 <body>
     <div class="terminal">
-        <div class="title">RFST EM</div>
-        <div class="subtitle">SYSTEM RECOVERY IN PROGRESS</div>
-        <div class="timer" id="timer">04:56</div>
+        <div class="ascii-art">
+ ███▄ ▄███▓ ▄▄▄       ██▓ ███▄    █ ▄▄▄█████▓▓█████  ███▄    █  ▄▄▄       ███▄    █  ▄████▄  ▓█████ 
+▓██▒▀█▀ ██▒▒████▄    ▓██▒ ██ ▀█   █ ▓  ██▒ ▓▒▓█   ▀  ██ ▀█   █ ▒████▄     ██ ▀█   █ ▒██▀ ▀█  ▓█   ▀ 
+▓██    ▓██░▒██  ▀█▄  ▒██▒▓██  ▀█ ██▒▒ ▓██░ ▒░▒███   ▓██  ▀█ ██▒▒██  ▀█▄  ▓██  ▀█ ██▒▒▓█    ▄ ▒███   
+▒██    ▒██ ░██▄▄▄▄██ ░██░▓██▒  ▐▌██▒░ ▓██▓ ░ ▒▓█  ▄ ▓██▒  ▐▌██▒░██▄▄▄▄██ ▓██▒  ▐▌██▒▒▓▓▄ ▄██▒▒▓█  ▄ 
+▒██▒   ░██▒ ▓█   ▓██▒░██░▒██░   ▓██░  ▒██▒ ░ ░▒████▒▒██░   ▓██░ ▓█   ▓██▒▒██░   ▓██░▒ ▓███▀ ░░▒████▒
+░ ▒░   ░  ░ ▒▒   ▓▒█░░▓  ░ ▒░   ▒ ▒   ▒ ░░   ░░ ▒░ ░░ ▒░   ▒ ▒  ▒▒   ▓▒█░░ ▒░   ▒ ▒ ░ ░▒ ▒  ░░░ ▒░ ░
+░  ░      ░  ▒   ▒▒ ░ ▒ ░░ ░░   ░ ▒░    ░     ░ ░  ░░ ░░   ░ ▒░  ▒   ▒▒ ░░ ░░   ░ ▒░  ░  ▒    ░ ░  ░
+░      ░     ░   ▒    ▒ ░   ░   ░ ░   ░         ░      ░   ░ ░   ░   ▒      ░   ░ ░ ░           ░   
+       ░         ░  ░ ░           ░             ░  ░         ░       ░  ░         ░ ░ ░         ░  ░
+                                                                                     ░               
+        </div>
+        <div class="title">SYSTEM MAINTENANCE</div>
+        <div class="subtitle">WARTUNGSARBEITEN IN PROGRESS</div>
         <div class="progress-bar">
             <div class="progress"></div>
         </div>
         <div class="status">
-            Recovering system files...<span class="cursor">_</span>
+            Systemwartung läuft...<span class="cursor">_</span>
         </div>
     </div>
-
-    <script>
-        function updateTimer() {
-            const timerElement = document.getElementById('timer');
-            let [minutes, seconds] = timerElement.innerText.split(':').map(Number);
-            
-            setInterval(() => {
-                seconds--;
-                if (seconds < 0) {
-                    minutes--;
-                    seconds = 59;
-                }
-                if (minutes < 0) {
-                    minutes = 4;
-                    seconds = 56;
-                }
-                timerElement.innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            }, 1000);
-        }
-
-        updateTimer();
-    </script>
 </body>
 </html> 

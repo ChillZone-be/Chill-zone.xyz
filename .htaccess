@@ -119,7 +119,15 @@ RewriteBase /
 # Zeige Loading Screen für die Hauptseite
 RewriteCond %{REQUEST_URI} ^/$
 RewriteCond %{REQUEST_URI} !^/loading\.html$
+RewriteCond %{REQUEST_URI} !^/index\.html$
 RewriteRule ^$ /loading.html [L]
+
+# Erlaube Zugriff auf die Loading-Seite und setze Header
+<Files "loading.html">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+</Files>
 
 # WWW zu Nicht-WWW Umleitung (ohne HTTPS)
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]

@@ -53,46 +53,41 @@ app.post('/blog/generate-blog', async (req, res) => {
               {
                 role: "system",
                 content: `
-                Du bist ein professioneller Blogger mit langjähriger Erfahrung. 
-                Du schreibst alle Texte auf Deutsch, achtest auf eine leicht verständliche Sprache 
-                und einen freundlichen, persönlichen Ton. 
-                Du stellst sicher, dass deine Texte sowohl unterhaltsam als auch informativ sind, 
-                ohne zu ausschweifend zu werden. 
-                Du bleibst beim Thema und verzichtest auf allzu allgemeine Floskeln. 
-                Fehlerfreie Rechtschreibung und Grammatik sind selbstverständlich.
-                `
+                Du bist ein professioneller Blogger und erfahrener Software-Entwickler. 
+                Du schreibst Blogposts auf Deutsch, verwendest eine klare und leicht verständliche Sprache 
+                und kannst bei Bedarf funktionierende Code-Beispiele einbinden. 
+                Achte auf Stil und Struktur, sodass deine Texte sowohl informativ als auch gut lesbar sind. 
+                Verwende korrekte Syntax und füge ggf. Erklärungen zu deinem Code hinzu.`
               },
               // User Prompt
               {
                 role: "user",
                 content: `
-                Bitte schreibe einen kurzen Blogpost über das Thema "${topic}".
+                Bitte schreibe einen kurzen Blogpost (max. 3 Absätze) über "${topic}", 
+                in dem du **auch ein kurzes Code-Beispiel** präsentierst und erklärst. 
                 
-                Folgende Vorgaben gelten für diesen Blogpost:
+                ### Vorgaben:
+                1. **Thema**: "${topic}"
+                2. **Aufbau**:
+                   - Absatz 1: Kurzer, einleitender Überblick zum Thema (ca. 50–70 Wörter).
+                   - Absatz 2: Stelle ein Code-Beispiel vor (in beliebiger Programmiersprache, sofern passend), 
+                     inkl. kurzer Erklärung, was der Code macht und warum er nützlich ist.
+                   - Absatz 3: Fasse die wichtigsten Punkte zusammen und gib einen kleinen Ausblick, 
+                     z. B. wo oder wie man den Code erweitern kann.
+                3. **Länge**: Maximal 3 Absätze, jeder Absatz sollte zwischen 40 und 80 Wörtern umfassen.
+                4. **Stil**: Freundlich, persönlich, leicht verständlich, du-Ansprache.
+                5. **Code-Format**: Bitte verwende Markdown für den Codeblock, z. B.:
+                   \`\`\`js
+                   // Beispiel-Code
+                   console.log("Hello World");
+                   \`\`\`
+                6. **Ziel**: Einsteigerinnen und Einsteiger sollen den Text gut verstehen und den Code leicht nachvollziehen können.
                 
-                1. **Länge**: Maximal 3 Absätze, jeder Absatz sollte zwischen 50 und 80 Wörtern umfassen.
-                2. **Struktur**:
-                   - **Einleitung**: Beginne mit einem kurzen, packenden Satz, der neugierig macht.
-                   - **Hauptteil**: Erläutere das Thema mit 1–2 konkreten Beispielen oder Tipps.
-                   - **Fazit**: Schließe den Beitrag mit einem kurzen Resümee oder einer persönlichen Note ab.
-                3. **Stil**:
-                   - Schreibe in einem lockeren, persönlichen Ton (Du-Ansprache).
-                   - Achte auf einen freundlichen und zugänglichen Sprachstil, ohne zu viele Fachbegriffe.
-                   - Wenn Fachbegriffe notwendig sind, erläutere sie kurz.
-                4. **Zusätzliche Hinweise**:
-                   - Binde nach Möglichkeit eine kleine Anekdote oder eine kurze Geschichte ein, um den Text aufzulockern.
-                   - Vermeide zu allgemeine Aussagen, werde konkret beim Thema.
-                   - Nutze eine ansprechende Überschrift (als erste Zeile).
-                   - Verwende keine klassischen Schlussformeln wie „Abschließend lässt sich sagen…“, sondern bleibe kreativ. 
-                5. **Zielgruppe**: Menschen, die sich schnell und unterhaltsam über dieses Thema informieren möchten.
-                
-                Erfülle bitte alle o. g. Vorgaben. 
-                Schreibe ausschließlich auf Deutsch. 
-                `
+                Verfasse den gesamten Text auf Deutsch. Achte auf Rechtschreibung und Grammatik.`
               }
             ],
             temperature: 0.7,
-            max_tokens: 600
+            max_tokens: 800
           });
       
 
