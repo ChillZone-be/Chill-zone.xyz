@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="19 Jahre • Coder & Gamer - Willkommen auf meiner persönlichen Website">
+    <meta name="keywords" content="Mika, Portfolio, Developer, Gamer, Coding, Deutschland">
+    <meta name="author" content="Mika">
+    <meta name="robots" content="index, follow">
+    <title>Mika | Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap">
+    <link rel="preload" href="/js/main.js" as="script">
+    <link rel="stylesheet" href="css/style.css">
+    <meta property="og:title" content="Mika's Chill-Zone">
+    <meta property="og:description" content="Gaming, Coding & Chillen - Willkommen in meiner Welt">
+    <meta property="og:image" content="https://chill-zone.xyz/images/mika-banner.jpg">
+    <meta property="og:url" content="https://chill-zone.xyz">
+    <script src="/games/tetris.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+
+    <nav>
+      <a href="/" class="logo">
+        <img src="images/logo.png" alt="Mika Logo" class="logo-image">
+      </a>
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="lang-toggle">DE</button>
+        <button class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="menu-overlay">
+      <ul class="menu-items">
+        <li><a href="/" data-index="1">Start</a></li>
+        <li><a href="/blog" data-index="2">Blog</a></li>
+        <li><a href="/about" data-index="3">Über mich</a></li>
+        <li><a href="/contact" data-index="4">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <main>
+      <section class="hero">
+        <h1>
+          HEY, ICH BIN <span class="highlight">Jannik</span><br>
+          ABER DU KANNST MICH <span class="highlight">MIKA</span> NENNEN
+        </h1>
+        <p class="subtitle">
+          Ich bin Developer, Designer<br>
+          & Frontend-Entwickler
+        </p>
+        <div class="cta-links">
+          <a href="/projects.html">→ meine projekte</a>
+          <a href="/about.html">→ mehr über mich</a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Smooth Scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Menu Toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const menuOverlay = document.querySelector('.menu-overlay');
+      
+      menuToggle.addEventListener('click', () => {
+        menuOverlay.classList.toggle('active');
+        document.body.style.overflow = menuOverlay.classList.contains('active') ? 'hidden' : '';
+      });
+
+      // Custom Cursor
+      const cursor = document.querySelector('.cursor');
+      const follower = document.querySelector('.cursor-follower');
+      
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        setTimeout(() => {
+          follower.style.left = e.clientX + 'px';
+          follower.style.top = e.clientY + 'px';
+        }, 50);
+      });
+      
+      // Cursor Hover Effekt für alle Links und Buttons
+      document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+          follower.style.transform = 'translate(-50%, -50%) scale(0.5)';
+        });
+        
+        el.addEventListener('mouseleave', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+          follower.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+      });
+
+      // Theme Toggle
+      const themeToggle = document.querySelector('.theme-toggle');
+      const icon = themeToggle.querySelector('i');
+      
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      icon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+      
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Update icon
+        icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        
+        // Optional: Add transition effect
+        document.documentElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+          document.documentElement.style.transition = '';
+        }, 300);
+      });
+
+      // Language Toggle
+      const langToggle = document.querySelector('.lang-toggle');
+      let currentLang = 'DE';
+      
+      const translations = {
+        DE: {
+          start: 'Start',
+          blog: 'Blog',
+          about: 'Über mich',
+          contact: 'Kontakt',
+          hey: 'HEY, ICH BIN',
+          but: 'ABER DU KANNST MICH',
+          call: 'NENNEN',
+          job: 'Ich bin Developer, Designer<br>& Frontend-Entwickler',
+          cta1: '→ meine projekte',
+          cta2: '→ mehr über mich'
+        },
+        LU: {
+          start: 'Start',
+          blog: 'Blog',
+          about: 'Iwwer mech',
+          contact: 'Kontakt',
+          hey: 'HEI, ECH SINN',
+          but: 'MEES DU KANNS MECH',
+          call: '',
+          job: 'Ech sinn Developer, Designer<br>& Frontend-Entwéckler',
+          cta1: '→ meng projeten',
+          cta2: '→ méi iwwer mech'
+        }
+      };
+      
+      langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'DE' ? 'LU' : 'DE';
+        langToggle.textContent = currentLang;
+        
+        // Update menu items
+        document.querySelector('[data-index="1"]').textContent = translations[currentLang].start;
+        document.querySelector('[data-index="2"]').textContent = translations[currentLang].blog;
+        document.querySelector('[data-index="3"]').textContent = translations[currentLang].about;
+        document.querySelector('[data-index="4"]').textContent = translations[currentLang].contact;
+        
+        // Update hero section
+        const h1Parts = document.querySelector('h1').innerHTML.split('<br>');
+        document.querySelector('h1').innerHTML = 
+          `${translations[currentLang].hey} <span class="highlight">Jannik</span><br>
+          ${translations[currentLang].but} <span class="highlight">MIKA</span> ${translations[currentLang].call}`;
+        
+        document.querySelector('.subtitle').innerHTML = translations[currentLang].job;
+        
+        // Update CTA links
+        const ctaLinks = document.querySelectorAll('.cta-links a');
+        ctaLinks[0].textContent = translations[currentLang].cta1;
+        ctaLinks[1].textContent = translations[currentLang].cta2;
+      });
+    </script>
+  </body>
+</html>

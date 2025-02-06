@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="19 Jahre • Coder & Gamer - Willkommen auf meiner persönlichen Website">
+    <meta name="keywords" content="Mika, Portfolio, Developer, Gamer, Coding, Deutschland">
+    <meta name="author" content="Mika">
+    <meta name="robots" content="index, follow">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <meta property="og:title" content="Mika's Chill-Zone">
+    <meta property="og:description" content="Gaming, Coding & Chillen - Willkommen in meiner Welt">
+    <meta property="og:image" content="https://chill-zone.xyz/images/mika-banner.jpg">
+    <meta property="og:url" content="https://chill-zone.xyz">
+    <script src="/games/tetris.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+  </head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="floating-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    
+    <nav>
+      <a href="/" class="logo">
+        <img src="images/logo.png" alt="Mika Logo" class="logo-image">
+      </a>
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="lang-toggle">DE</button>
+        <button class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="menu-overlay">
+      <ul class="menu-items">
+        <li><a href="/" data-index="1">Start</a></li>
+        <li><a href="/blog" data-index="2">Blog</a></li>
+        <li><a href="/about" data-index="3">Über mich</a></li>
+        <li><a href="/contact" data-index="4">Kontakt</a></li>
+      </ul>
+    </div>
+
+    <main>
+        <section class="blog">
+            <h1>Blog<span class="highlight">posts</span></h1>
+            
+            <!-- Suchbereich hinzufügen -->
+            <div class="blog-search">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Suche nach einem Thema..."
+                    class="search-input"
+                >
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Blog Grid bleibt erstmal gleich -->
+            <div class="blog-grid">
+                <!-- ... bestehende Blog Posts ... -->
+            </div>
+
+            <!-- Loading State -->
+            <div class="blog-loading" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>Generiere neuen Blogpost...</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Bestehende Scripts bleiben...
+
+        // Blog Post Generator
+        const searchInput = document.querySelector('#searchInput');
+        const searchBtn = document.querySelector('.search-btn');
+        const blogGrid = document.querySelector('.blog-grid');
+        const loadingEl = document.querySelector('.blog-loading');
+
+        async function generateBlogPost(topic) {
+            try {
+                loadingEl.style.display = 'flex';
+                
+                const response = await fetch('/api/blog/generate-blog.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ topic })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    const newPost = document.createElement('article');
+                    newPost.className = 'blog-post';
+                    newPost.innerHTML = `
+                        <h2>${data.post.title}</h2>
+                        <div class="post-content">${data.post.content}</div>
+                        <div class="post-meta">
+                            <span class="post-date">${new Date().toLocaleDateString('de-DE')}</span>
+                        </div>
+                    `;
+                    blogGrid.insertBefore(newPost, blogGrid.firstChild);
+                } else {
+                    throw new Error(data.message || 'Fehler beim Generieren des Blogposts');
+                }
+            } catch (error) {
+                console.error('Fehler:', error);
+                showMessage('Fehler beim Generieren des Blogposts: ' + error.message, 'error');
+            } finally {
+                loadingEl.style.display = 'none';
+            }
+        }
+
+        // Hilfsfunktion für Nachrichten
+        function showMessage(text, type = 'success') {
+            const msgEl = document.createElement('div');
+            msgEl.className = `message ${type}-message`;
+            msgEl.textContent = text;
+            document.body.appendChild(msgEl);
+            setTimeout(() => msgEl.remove(), 5000);
+        }
+
+        // Event Listener für Suche
+        searchBtn.addEventListener('click', () => {
+            const topic = searchInput.value.trim();
+            if (topic) {
+                generateBlogPost(topic);
+                searchInput.value = '';
+            }
+        });
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const topic = searchInput.value.trim();
+                if (topic) {
+                    generateBlogPost(topic);
+                    searchInput.value = '';
+                }
+            }
+        });
+
+        // Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        menuToggle.addEventListener('click', () => {
+          menuOverlay.classList.toggle('active');
+        });
+        
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+          requestAnimationFrame(() => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+              cursorFollower.style.left = e.clientX + 'px';
+              cursorFollower.style.top = e.clientY + 'px';
+            }, 50);
+          });
+        });
+        
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
+        const moonIcon = document.querySelector('.fa-moon');
+        
+        themeToggle.addEventListener('click', () => {
+          htmlElement.setAttribute('data-theme', 
+            htmlElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
+          );
+          
+          moonIcon.classList.toggle('fa-moon');
+          moonIcon.classList.toggle('fa-sun');
+          
+          document.documentElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+          setTimeout(() => {
+            document.documentElement.style.transition = '';
+          }, 300);
+        });
+        
+        // Language Toggle
+        const langToggle = document.querySelector('.lang-toggle');
+        let currentLang = 'DE';
+        
+        const translations = {
+          DE: {
+            start: 'Start',
+            blog: 'Blog',
+            about: 'Über mich',
+            contact: 'Kontakt'
+          },
+          LU: {
+            start: 'Start',
+            blog: 'Blog',
+            about: 'Iwwer mech',
+            contact: 'Kontakt'
+          }
+        };
+        
+        langToggle.addEventListener('click', () => {
+          currentLang = currentLang === 'DE' ? 'LU' : 'DE';
+          langToggle.textContent = currentLang;
+          
+          document.querySelector('[data-index="1"]').textContent = translations[currentLang].start;
+          document.querySelector('[data-index="2"]').textContent = translations[currentLang].blog;
+          document.querySelector('[data-index="3"]').textContent = translations[currentLang].about;
+          document.querySelector('[data-index="4"]').textContent = translations[currentLang].contact;
+        });
+    </script>
+</body>
+</html>

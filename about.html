@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="19 Jahre • Coder & Gamer - Willkommen auf meiner persönlichen Website">
+    <meta name="keywords" content="Mika, Portfolio, Developer, Gamer, Coding, Deutschland">
+    <meta name="author" content="Mika">
+    <meta name="robots" content="index, follow">
+    <title>Über mich | Mika</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <nav>
+        <a href="/" class="logo">
+            <img src="images/logo.png" alt="Mika Logo" class="logo-image">
+        </a>
+        <div class="nav-right">
+            <button class="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="lang-toggle">DE</button>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="menu-overlay">
+        <ul class="menu-items">
+            <li><a href="/" data-index="1">Start</a></li>
+            <li><a href="/blog" data-index="2">Blog</a></li>
+            <li><a href="/about" data-index="3">Über mich</a></li>
+            <li><a href="/contact" data-index="4">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="about">
+            <div class="about-container">
+                <div class="about-left">
+                    <h1>ÜBER <span class="highlight">MICH</span></h1>
+                    <div class="about-text">
+                        <p class="about-intro">
+                    I'm Jannik, an <strong>18 year old</strong> from Germany! 📚<br />
+                    Meow meow mrrp~ HRT since a year ago, taken by Lea 💯<br /><br />
+                            
+                    I go by <em>Mika</em> on the internet, and my socials are linked on
+                    this site. I mainly spend my time shitposting, so if you're into
+                    that feel free to follow me :3<br />
+                            
+                    I'm learning PCB design, PnP production, and CNC machining. My
+                    apprenticeship is in plastic and rubber technology.<br /><br />
+                            
+                    I'm a software developer with big ambitions and a chronic lack of
+                    motivation to touch my projects. Linux enthusiast, self-hosting
+                    everything, open-source enjoyer. Big tech can go to hell.<br />
+                            
+                    I run <em>amogus.cloud</em>, an invite-only suite of self-hosted
+                    software for my friends including Nextcloud, Email, Jellyfin, and
+                    others :3
+                </p>
+                        <div class="skills">
+                            <h2>Meine <span class="highlight">Skills</span></h2>
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                    <h3>Frontend</h3>
+                                    <ul>
+                                        <li>HTML5</li>
+                                        <li>CSS3 / SASS</li>
+                                        <li>JavaScript</li>
+                                        <li>React</li>
+                                    </ul>
+            </div>
+                                <div class="skill-category">
+                                    <h3>Backend</h3>
+                                    <ul>
+                                        <li>Node.js</li>
+                                        <li>PHP</li>
+                                        <li>MySQL</li>
+                                        <li>MongoDB</li>
+                                    </ul>
+        </div>
+                                <div class="skill-category">
+                                    <h3>Tools</h3>
+                                    <ul>
+                                        <li>Git</li>
+                                        <li>VS Code</li>
+                                        <li>Figma</li>
+                                        <li>Adobe XD</li>
+                                    </ul>
+            </div>
+            </div>
+            </div>
+        </div>
+                </div>
+                <div class="about-right">
+                    <img src="images/jannik.jpg" alt="Mika" class="profile-image">
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <script>
+        // Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        menuToggle.addEventListener('click', () => {
+          menuOverlay.classList.toggle('active');
+        });
+        
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+          
+          cursorFollower.style.left = e.clientX + 'px';
+          cursorFollower.style.top = e.clientY + 'px';
+        });
+        
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const htmlElement = document.documentElement;
+        const moonIcon = document.querySelector('.fa-moon');
+        
+        themeToggle.addEventListener('click', () => {
+          htmlElement.setAttribute('data-theme', 
+            htmlElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
+          );
+          
+          moonIcon.classList.toggle('fa-moon');
+          moonIcon.classList.toggle('fa-sun');
+          
+          document.documentElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+          setTimeout(() => {
+            document.documentElement.style.transition = '';
+          }, 300);
+        });
+        
+        // Language Toggle
+        const langToggle = document.querySelector('.lang-toggle');
+        let currentLang = 'DE';
+        
+        const translations = {
+          DE: {
+            start: 'Start',
+            blog: 'Blog',
+            about: 'Über mich',
+            contact: 'Kontakt'
+          },
+          LU: {
+            start: 'Start',
+            blog: 'Blog',
+            about: 'Iwwer mech',
+            contact: 'Kontakt'
+          }
+        };
+        
+        langToggle.addEventListener('click', () => {
+          currentLang = currentLang === 'DE' ? 'LU' : 'DE';
+          langToggle.textContent = currentLang;
+          
+          // Update menu items
+          document.querySelector('[data-index="1"]').textContent = translations[currentLang].start;
+          document.querySelector('[data-index="2"]').textContent = translations[currentLang].blog;
+          document.querySelector('[data-index="3"]').textContent = translations[currentLang].about;
+          document.querySelector('[data-index="4"]').textContent = translations[currentLang].contact;
+        });
+    </script>
+</body>
+</html>

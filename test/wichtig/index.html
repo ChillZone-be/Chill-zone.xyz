@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chill-Zone.xyz</title>
+    <link rel="icon" type="image/x-icon" href="default.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: url('animebg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .contact-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 153, 0.8);
+            text-align: center;
+            width: 400px;
+        }
+
+        .contact-card h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 153, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .overlay img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 153, 0.8);
+            padding: 10px 20px;
+        }
+
+        .nav-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <img src="default.jpeg" alt="Logo">
+        <span>Chill-Zone.xyz</span>
+    </div>
+    <div class="nav-bar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="contact-card">
+        <h1>Hi.<br>I'm Mika.</h1>
+        <div class="contact-info">
+            <div>
+                <i class="fab fa-discord"></i>
+                <span>@Mika#5128</span>
+            </div>
+            <div>
+                <i class="fab fa-twitter"></i>
+                <span>@sussycatgirl</span>
+            </div>
+            <div>
+                <i class="fas fa-link"></i>
+                <span>sussycatgirl</span>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <span>mika@chill-zone.xyz</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Node
+node_modules/
+
+# Konfigurationsdateien
+server/config.js
+.env
+server/.env
+
+# Env
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local 

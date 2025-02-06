@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Blog</title>
+
+    <style>
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('bg.png') no-repeat center center fixed; background-size: cover;
+            color: #fff; /* White text color */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly darker transparent black background */
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #f9f9f9; /* Slightly off-white text color */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* More opaque transparent black background */
+            border-radius: 20px;
+            flex: 1;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+        }
+
+        .blog-post {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* Light transparent white background */
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-post h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #f1f1f1; /* Slightly off-white text color */
+        }
+
+        .blog-post p {
+            font-size: 1.2em;
+            color: #e0e0e0; /* Light gray text color */
+        }
+
+        .blog-post a {
+            color: #1e90ff; /* Dodger blue link color */
+            text-decoration: none;
+        }
+
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+
+        .blog-post img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly darker transparent black background */
+            color: #fff; /* White text color */
+            padding: 15px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mein Blog</h1>
+    </header>
+
+    <div class="container" id="posts-container">
+        <!-- Blog-Posts werden hier dynamisch eingefügt -->
+    </div>
+
+    <footer>
+        &copy; <span style="color: red;">2024</span>
+    </footer>
+
+    <script>
+        const posts = [
+            {
+                "id": "post1",
+                "title": "Tunneling a Mailcow server through Wireguard",
+                "content": "Kurze Einführung in den Inhalt des ersten Blog-Posts.",
+                "link": "post1.html",
+                "image": "post1-thumbnail.jpg" // Optional: Bild für den Post
+            },
+            {
+                "id": "post2",
+                "title": "I hate Android",
+                "content": "Kurze Einführung in den Inhalt des zweiten Blog-Posts.",
+                "link": "post2.html",
+                "image": "" // Optional: Bild für den Post
+            }
+        ];
+
+        function createPostElement(post) {
+            const postContainer = document.createElement('div');
+            postContainer.classList.add('blog-post');
+
+            postContainer.innerHTML = `
+                <a href="${post.link}">
+                    ${post.image ? `<img src="${post.image}" alt="${post.title} Thumbnail">` : ''}
+                    <h2>${post.title}</h2>
+                    <p>${post.content}</p>
+                </a>
+            `;
+
+            return postContainer;
+        }
+
+        function displayPosts() {
+            const container = document.getElementById('posts-container');
+            posts.forEach(post => {
+                container.appendChild(createPostElement(post));
+            });
+        }
+
+        displayPosts();
+    </script>
+
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || (e.ctrlKey && (e.key === 'U' || e.key === 'C'))) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>

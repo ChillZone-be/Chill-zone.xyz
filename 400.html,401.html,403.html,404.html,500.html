@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error [ERROR_CODE] - chill-zone.xyz</title>
+    <style>
+        body {
+            background: url("images/animebg.jpg") no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+        }
+
+        .terminal {
+            background: rgba(18, 18, 18, 0.95);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            padding: 40px 20px 20px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        .window-controls {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .window-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .control-close { background: #ff5f56; }
+        .control-minimize { background: #ffbd2e; }
+        .control-maximize { background: #27c93f; }
+
+        .window-title {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .content {
+            text-align: center;
+            color: #0f0;
+        }
+
+        pre {
+            font-family: monospace;
+            line-height: 1.2;
+            color: #ff1493;
+            margin: 20px 0;
+            font-size: 12px;
+            text-shadow: 0 0 5px #ff1493;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .home-link {
+            display: inline-block;
+            color: #0f0;
+            text-decoration: none;
+            border: 1px solid #0f0;
+            padding: 10px 20px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .home-link:hover {
+            background: #0f0;
+            color: #000;
+        }
+
+        #countdown {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="window-controls">
+            <div class="window-control control-close"></div>
+            <div class="window-control control-minimize"></div>
+            <div class="window-control control-maximize"></div>
+        </div>
+        <div class="window-title">system@chill-zone.xyz: ~/error</div>
+        
+        <div class="content">
+            <pre>
+[ERROR_ASCII_ART]
+            </pre>
+            <div class="blink">System Error: [ERROR_MESSAGE]</div>
+            <p>[ERROR_DESCRIPTION]</p>
+            <a href="/" class="home-link">[ Return to Home ]</a>
+            <div id="countdown">Redirecting in 10s...</div>
+        </div>
+    </div>
+
+    <script>
+        let timeLeft = 10;
+        const countdownEl = document.getElementById('countdown');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = `Redirecting in ${timeLeft}s...`;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = '/';
+            }
+        }, 1000);
+    </script>
+</body>
+</html> 

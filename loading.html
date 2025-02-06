@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading... | chill-zone.xyz</title>
+    <style>
+        :root {
+            --primary: #8A2BE2;
+            --secondary: #FF69B4;
+            --dark: #1a1625;
+            --light: #ffffff;
+        }
+
+        body {
+            background: var(--dark);
+            background: url("images/animebg.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: var(--light);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+
+        .terminal {
+            background: rgba(26, 22, 37, 0.95);
+            border-radius: 15px;
+            padding: 40px 20px 20px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .window-controls {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .window-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .control-close { background: #ff5f56; }
+        .control-minimize { background: #ffbd2e; }
+        .control-maximize { background: #27c93f; }
+
+        .window-title {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .ascii-art {
+            white-space: pre;
+            font-size: 8px;
+            line-height: 1.2;
+            color: var(--secondary);
+            text-shadow: 0 0 10px var(--primary);
+            animation: glow 2s ease-in-out infinite,
+                      pulse 3s ease-in-out infinite;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .loading-text {
+            color: #27c93f;
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: fadeInOut 2s ease-in-out infinite;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            width: 0%;
+            animation: progress 3s ease-in-out forwards;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px var(--primary); }
+            50% { text-shadow: 0 0 20px var(--secondary); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes progress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="window-controls">
+            <div class="window-control control-close"></div>
+            <div class="window-control control-minimize"></div>
+            <div class="window-control control-maximize"></div>
+        </div>
+        <div class="window-title">system@chill-zone.xyz: ~/loading</div>
+        
+        <div class="ascii-art">
+            ██████╗██╗  ██╗██╗██╗     ██╗      ███████╗ ██████╗ ███╗   ██╗███████╗
+            ██╔════╝██║  ██║██║██║     ██║      ╚══███╔╝██╔═══██╗████╗  ██║██╔════╝
+            ██║     ███████║██║██║     ██║        ███╔╝ ██║   ██║██╔██╗ ██║█████╗  
+            ██║     ██╔══██║██║██║     ██║       ███╔╝  ██║   ██║██║╚██╗██║██╔══╝  
+            ╚██████╗██║  ██║██║███████╗███████╗ ███████╗╚██████╔╝██║ ╚████║███████╗
+            ╚═════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+                                                                            
+            ▄████▄   ▒█████   ▓█████▄  ██▓ ███▄    █   ▄████                       
+            ▒██▀ ▀█  ▒██▒  ██▒ ▒██▀ ██▌▓██▒ ██ ▀█   █  ██▒ ▀█▒                     
+            ▒▓█    ▄ ▒██░  ██▒ ░██   █▌▒██▒▓██  ▀█ ██▒▒██░▄▄▄░                     
+            ▒▓▓▄ ▄██▒▒██   ██░ ░▓█▄   ▌░██░▓██▒  ▐▌██▒░▓█  ██▓                     
+            ▒ ▓███▀ ░░ ████▓▒░ ░▒████▓ ░██░▒██░   ▓██░░▒▓███▀▒                     
+            ░ ░▒ ▒  ░░ ▒░▒░▒░   ▒▒▓  ▒ ░▓  ░ ▒░   ▒ ▒  ░▒   ▒                      
+            ░  ▒     ░ ▒ ▒░   ░ ▒  ▒  ▒ ░░ ░░   ░ ▒░  ░   ░                      
+            ░        ░ ░ ░ ▒    ░ ░  ░  ▒ ░   ░   ░ ░ ░   ░                      
+            ░ ░          ░ ░      ░     ░           ░       ░                      
+            ░                   ░                                                    
+        </div>
+        <div class="loading-text">Initialisiere System...</div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingTexts = [
+                "Initialisiere System...",
+                "Lade Module...",
+                "Starte Services...",
+                "Verbinde mit Server...",
+                "Fast fertig..."
+            ];
+            let currentText = 0;
+            
+            const loadingElement = document.querySelector('.loading-text');
+            
+            setInterval(() => {
+                loadingElement.textContent = loadingTexts[currentText];
+                currentText = (currentText + 1) % loadingTexts.length;
+            }, 600);
+
+            setTimeout(() => {
+                window.location.href = '/index.html';
+            }, 3000);
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+
+# Fehlerseiten nicht indexieren
+Disallow: /400.html
+Disallow: /401.html
+Disallow: /403.html
+Disallow: /404.html
+Disallow: /500.html
+Disallow: /error.html
+Disallow: /maintenance.html
+
+# Admin und System Dateien nicht indexieren
+Disallow: /.htaccess
+Disallow: /.user.ini
+Disallow: /error.php
+Disallow: /test.php
+
+# Sitemap
+Sitemap: https://chill-zone.xyz/sitemap.xml
+
+# Crawling-Rate
+Crawl-delay: 10
